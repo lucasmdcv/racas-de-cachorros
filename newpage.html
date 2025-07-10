@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raças de Cachorros - Conheça os Peludos!</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* Reset básico para garantir consistência entre navegadores */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            /* Fonte para o corpo do texto */
+            line-height: 1.6;
+            color: #333;
+            background-color: #eaf2f8;
+            /* Um azul muito claro e suave */
+            padding: 20px;
+        }
+
+        /* Estilo para o botão "Voltar" */
+        .voltar-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            text-decoration: none;
+            color: #007bff;
+            /* Azul vibrante */
+            font-weight: 600;
+            /* Mais encorpado */
+            padding: 10px 20px;
+            border: 1px solid #007bff;
+            border-radius: 25px;
+            /* Mais arredondado */
+            transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .voltar-link:hover {
+            background-color: #007bff;
+            color: #fff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Conteúdo principal - Ajustado para um "cartão" centralizado e elegante */
+        .conteudo-principal {
+            max-width: 960px;
+            /* Largura um pouco maior para acomodar melhor */
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 40px;
+            /* Mais padding interno */
+            border-radius: 12px;
+            /* Cantos mais arredondados */
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+            /* Sombra mais pronunciada */
+        }
+
+        /* Estilo para cada seção de raças */
+        .secao-racas {
+            margin-bottom: 40px;
+            /* Mais espaçamento entre as seções */
+            padding-bottom: 25px;
+            border-bottom: 1px dashed #dcdcdc;
+            /* Linha divisória tracejada e mais suave */
+        }
+
+        .secao-racas:last-of-type {
+            /* Seleciona a última seção de raças */
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        /* Título principal da página */
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            /* Fonte mais impactante para títulos */
+            color: #2c3e50;
+            /* Um cinza escuro sofisticado */
+            margin-bottom: 25px;
+            /* Mais espaço abaixo do título */
+            text-align: center;
+            font-size: 2.8em;
+            /* Tamanho do título principal */
+            text-transform: uppercase;
+            /* Deixa os títulos em maiúsculas */
+            letter-spacing: 1px;
+            /* Espaçamento entre letras */
+        }
+
+        /* Subtítulos de seção (h2) */
+        h2 {
+            font-family: 'Montserrat', sans-serif;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 2.2em;
+            /* Tamanho dos subtítulos de seção */
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+
+        p {
+            margin-bottom: 15px;
+            /* Espaço entre parágrafos */
+            text-align: justify;
+            color: #555;
+        }
+
+        ul {
+            list-style: none;
+            /* Remove as bolinhas padrão */
+            padding: 0;
+            /* Remove padding padrão */
+            margin-left: 20px;
+            /* Recuo para simular lista */
+            margin-bottom: 20px;
+        }
+
+        ul li {
+            margin-bottom: 8px;
+            /* Espaço entre os itens da lista */
+            position: relative;
+            /* Para posicionar o custom bullet */
+            padding-left: 25px;
+            /* Espaço para o custom bullet */
+            color: #444;
+        }
+
+        ul li::before {
+            content: "🐶";
+            /* Adiciona um ícone de cachorro como bullet */
+            position: absolute;
+            left: 0;
+            color: #ff6f61;
+            /* Cor para o ícone */
+            font-size: 0.9em;
+            top: 2px;
+            /* Ajuste vertical */
+        }
+
+        /* Estilo para as galerias de imagens */
+        .galeria-racas {
+            display: grid;
+            /* Usamos Grid para um layout mais controlado */
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            /* Colunas responsivas */
+            gap: 20px;
+            /* Espaço maior entre as imagens */
+            margin-top: 30px;
+            /* Mais espaço acima da galeria */
+            padding: 10px;
+            /* Padding interno para a galeria */
+            background-color: #f9f9f9;
+            /* Fundo suave para a galeria */
+            border-radius: 10px;
+            box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.05);
+            /* Sombra interna sutil */
+        }
+
+        /* Novo estilo para agrupar descrição e imagem */
+        .galeria-racas > div {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Centraliza conteúdo horizontalmente */
+            text-align: center; /* Centraliza o texto */
+        }
+
+        .galeria-racas > div p {
+            margin-bottom: 10px; /* Espaço entre o texto e a imagem */
+            font-size: 0.9em;
+            text-align: center; /* Garante que o texto da descrição da raça esteja centralizado */
+        }
+
+        .galeria-racas img {
+            width: 100%;
+            /* Imagem preenche a coluna do grid */
+            height: 140px;
+            /* Altura fixa ligeiramente menor para miniaturas */
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            /* Sombra um pouco mais forte para as imagens */
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease, border-color 0.2s ease;
+            border: 2px solid transparent;
+            /* Borda para o hover */
+            cursor: pointer;
+            /* Indica que a imagem é clicável */
+        }
+
+        .galeria-racas img:hover {
+            transform: translateY(-5px);
+            /* Efeito de "levantar" */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            /* Sombra mais intensa no hover */
+            border-color: #ff6f61;
+            /* Borda colorida no hover */
+        }
+
+        /* Estilo para a mensagem final */
+        .mensagem-final {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 1.15em;
+            font-weight: 600;
+            /* Mais encorpado */
+            color: #4a69bd;
+            /* Uma cor azul mais agradável */
+            background-color: #e0f2f7;
+            /* Fundo suave para o destaque */
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 5px solid #4a69bd;
+            /* Borda esquerda de destaque */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+        }
+        
+        /* Removida a classe .img-raca-media pois suas propriedades eram problemáticas e redundantes */
+
+        /* Media Queries para responsividade */
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+
+            .conteudo-principal {
+                padding: 25px;
+                margin: 15px auto;
+            }
+
+            h1 {
+                font-size: 2.2em;
+                /* Ajuste do H1 para telas menores */
+                margin-bottom: 20px;
+            }
+
+            h2 {
+                font-size: 1.8em;
+                /* Ajuste do H2 para telas menores */
+                margin-bottom: 15px;
+            }
+
+            .secao-racas {
+                margin-bottom: 30px;
+                height: auto; /* Remove fixed height for better responsiveness */
+            }
+
+            .galeria-racas {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+                /* Ajuste para telas menores */
+                gap: 15px;
+                padding: 10px;
+            }
+
+            .galeria-racas img {
+                height: 120px; /* Altura ajustada para miniaturas em telas menores */
+                width: 100%; /* Garante que a imagem preencha a largura disponível */
+            }
+        }
+
+        @media (max-width: 1780px) and (min-width: 769px) { /* Aplica-se a telas entre 769px e 1780px */
+            h1 {
+                font-size: 2.2em; /* Tamanho ajustado para telas intermediárias */
+            }
+
+            h2 {
+                font-size: 1.8em;
+            }
+
+            p {
+                font-size: 0.95em;
+            }
+
+            ul li {
+                padding-left: 10px;
+            }
+
+            ul li::before {
+                font-size: 0.8em;
+            }
+
+            .voltar-link {
+                padding: 8px 15px;
+                font-size: 0.9em;
+            }
+
+            .galeria-racas {
+                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Min-width ajustado para colunas */
+                gap: 30px; /* Espaçamento ajustado */
+            }
+
+            .galeria-racas img {
+                width: 100%;
+                height: 180px; /* Altura ajustada para este breakpoint */
+                object-fit: cover;
+            }
+
+            /* .mensagem-final1 foi removida do CSS pois não era usada no HTML e estava com valores problemáticos */
+
+            .mensagem-final {
+                margin-top: 40px;
+                font-size: 1em;
+                padding: 15px;
+            }
+        }
+
+        /* --- Estilos para o Modal de Imagem em Tela Cheia --- */
+        .modal {
+            display: none;
+            /* Escondido por padrão */
+            position: fixed;
+            /* Fixa na tela */
+            z-index: 1000;
+            /* Acima de todo o resto */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            /* Adiciona scroll se a imagem for maior que a tela */
+            background-color: rgba(0, 0, 0, 0.9);
+            /* Fundo preto semi-transparente */
+            justify-content: center;
+            /* Centraliza a imagem horizontalmente */
+            align-items: center;
+            /* Centraliza a imagem verticalmente */
+            flex-direction: column;
+            /* Para alinhar a imagem e o texto */
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            /* Largura máxima da imagem dentro do modal */
+            max-height: 90vh; /* Altura máxima da imagem dentro do modal (ajustado para viewport height) */
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+            /* Sombra branca suave */
+        }
+
+        .modal-caption {
+            margin-top: 15px;
+            color: #ccc;
+            font-size: 1.2em;
+            text-align: center;
+            max-width: 80%;
+        }
+
+        .close-button {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .close-button:hover,
+        .close-button:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .pet-care-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Centers content horizontally */
+            text-align: center; /* Centers text */
+            padding: 40px 20px; /* Adds padding around the section */
+            background-color: #f9f9f9; /* Light background for the section */
+            border-radius: 10px; /* Slightly rounded corners */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+            max-width: 600px; /* Limits the width of the section */
+            margin: 40px auto; /* Centers the section on the page */
+        }
+
+        .pet-care-section h3 {
+            color: #333; /* Darker text for better readability */
+            margin-bottom: 25px; /* Space below the heading */
+            font-size: 1.8em; /* Larger font size for prominence */
+        }
+
+        .pet-food-img {
+            width: 80%; /* Adjusts image width to be responsive */
+            max-width: 350px; /* Maximum width for the image */
+            height: auto; /* Maintains aspect ratio */
+            border-radius: 8px; /* Rounded corners for the image */
+            margin-bottom: 30px; /* Space below the image */
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); /* Light shadow for the image */
+        }
+
+        .buy-button-link {
+            text-decoration: none; /* Removes underline from the link */
+        }
+
+        .buy-now-button {
+            background-color: #ff6f61; /* Vibrant call-to-action color */
+            color: white; /* White text on the button */
+            border: none; /* No border for the button */
+            padding: 18px 35px; /* Larger padding for a more clickable area */
+            border-radius: 30px; /* Very rounded corners for a modern look */
+            font-size: 1.2em; /* Larger font size for the button text */
+            font-weight: bold; /* Bold text for emphasis */
+            cursor: pointer; /* Indicates it's clickable */
+            transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth hover effects */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow for the button */
+        }
+
+        .buy-now-button:hover {
+            background-color: #e65c50; /* Slightly darker on hover */
+            transform: translateY(-2px); /* Slight lift effect on hover */
+        }
+
+        .buy-now-button:active {
+            background-color: #d94e43; /* Even darker on click */
+            transform: translateY(0); /* Resets position on click */
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <a href="./index.html" class="voltar-link">Voltar</a>
+    </div>
+
+    <div class="conteudo-principal">
+        <h1>Raças de Cachorros - Conheça os Peludos!</h1>
+
+        <section class="secao-racas" id="racas-medias">
+            <h2>Raças Médias</h2>
+            <p>Versáteis e muitas vezes ideais para famílias ativas ou com espaço moderado.</p>
+            <div class="galeria-racas">
+                <div>
+                    <p><strong>Bulldog Francês:</strong> Adorável, com um temperamento divertido e relativamente de
+                        baixa energia.</p>
+                    <img src="https://static9.depositphotos.com/1594920/1089/i/950/depositphotos_10891903-stock-photo-french-bulldog-puppy-3-months.jpg"
+                        alt="Filhote de Bulldog Francês sentado">
+                </div>
+                <div>
+                    <p><strong>Buldogue Inglês:</strong> Calmo, leal e com uma aparência distinta.</p>
+                    <img src="https://www.receitaspet.com.br/wp-content/uploads/2024/08/Raca-de-Cachorro-Bulldog-Ingles.webp"
+                        alt="Bulldog Inglês com rugas e expressão calma">
+                </div>
+                <div>
+                    <p><strong>Border Collie:</strong> Extremamente inteligente e enérgico, excelente para esportes
+                        caninos e tarefas que exigem raciocínio.</p>
+                    <img src="https://cdn.pixabay.com/photo/2015/03/14/03/40/border-collie-672633_1280.jpg"
+                        alt="Border Collie correndo em um campo">
+                </div>
+                <div>
+                    <p><strong>Cocker Spaniel:</strong> Dócil, carinhoso e um ótimo companheiro familiar.</p>
+                    <img src="https://love.doghero.com.br/wp-content/uploads/2018/03/shutterstock_291408863-scaled.jpg"
+                        alt="Cocker Spaniel feliz com a língua para fora">
+                </div>
+                <div>
+                    <p><strong>Basset Hound:</strong> Leal, de natureza gentil e conhecido por suas orelhas longas e
+                        grandes.</p>
+                    <img src="https://www.patasdacasa.com.br/sites/default/files/styles/article_detail_1200/public/noticias/2020/01/basset-hound-conheca-4-caracteristicas-desse-cachorro-com-orelhas-compridas.jpg.webp?itok=8zuzrGDC"
+                        alt="Basset Hound com suas características orelhas caídas">
+                </div>
+            </div>
+        </section>
+
+        <section class="secao-racas" id="racas-grandes-gigantes">
+            <h2>Raças Grandes e Gigantes</h2>
+            <p>Impressionantes e muitas vezes com um temperamento calmo e protetor, mas que exigem espaço e cuidados
+                específicos.</p>
+            <div class="galeria-racas">
+                <div>
+                    <p><strong>Golden Retriever:</strong> Amigável, inteligente e um excelente cão de família, ótimo com
+                        crianças.</p>
+                    <img src="https://www.jornalcruzeiro.com.br/_midias/jpg/2024/12/28/z3b-1425522.jpg"
+                        alt="Golden Retriever brincalhão em um parque">
+                </div>
+                <div>
+                    <p><strong>Labrador Retriever:</strong> Popular por seu temperamento amigável, inteligência e
+                        versatilidade.</p>
+                    <img src="https://thumbs.dreamstime.com/b/labrador-adulto-na-praia-no-ver%C3%A3o-374515795.jpg"
+                        alt="Labrador adulto correndo na praia">
+                </div>
+                <div>
+                    <p><strong>Pastor Alemão:</strong> Inteligente, leal e corajoso, frequentemente usado como cão de
+                        trabalho e guarda.</p>
+                    <img src="https://guiapetfriendly.com.br/wp-content/uploads/2024/03/pastor-alemao.jpeg"
+                        alt="Pastor Alemão vigilante e imponente">
+                </div>
+                <div>
+                    <p><strong>Husky Siberiano:</strong> Atlético, com muita energia e um instinto de matilha forte.</p>
+                    <img src="https://www.fatosdesconhecidos.com.br/wp-content/uploads/2023/10/cachorro-1.jpeg"
+                        alt="Husky Siberiano com seus marcantes olhos azuis">
+                </div>
+                <div>
+                    <p><strong>Bernese Mountain Dog:</strong> Gentil, calmo e tolerante, um ótimo cão de família que gosta
+                        do frio.</p>
+                    <img src="https://images.unsplash.com/photo-1516033851233-059aa55b0fce?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YmVynes Mountain Dog na neve"
+                        alt="Bernese Mountain Dog na neve, sorrindo">
+                </div>
+                <div>
+                    <p><strong>Dogue Alemão:</strong> Um gigante gentil, calmo e afetuoso com a família.</p>
+                    <img src="https://www.infoescola.com/wp-content/uploads/2010/10/Dogue-Alem%C3%A3o_590156975.jpg"
+                        alt="Dogue Alemão majestoso e grande">
+                </div>
+            </div>
+        </section>
+        <section class="secao-racas" id="outras-categorias">
+            <h2>Outras Categorias e Considerações</h2>
+            <p>Além do tamanho, você pode pensar em outras características:</p>
+            <ul>
+                <li><strong>Cães de Trabalho:</strong> Raças como o Pastor Alemão, Malinois e Boiadeiro Bernês, muitas
+                    vezes com alta energia e necessidade de treinamento.</li>
+                <li><strong>Cães de Caça:</strong> Como Beagles, Dachshunds e Pointers, que podem ter um forte instinto
+                    de perseguição.</li>
+                <li><strong>Cães de Companhia:</strong> Muitos dos cães pequenos se encaixam aqui, mas também raças
+                    maiores com temperamento mais tranquilo.</li>
+                <li><strong>Raças Hipoalergênicas:</strong> Para pessoas com alergias, como Poodles, Bichon Frisé e
+                    Schnauzers.</li>
+            </ul>
+        </section>
+
+        <div class="pet-care-section">
+           <h3>Seu melhor amigo merece o melhor: nutrição premium para uma vida mais saudável e feliz!</h3>
+
+            <img src="https://m.media-amazon.com/images/I/7106TfpgqjL._AC_SL1500_.jpg" alt="Ração para seu Pet"
+                class="pet-food-img">
+                <p style="max-width: 500px; font-size: 1em; color: #555; margin-bottom: 20px;">
+Feita com ingredientes selecionados, esta ração promove uma pelagem mais brilhante, fortalece a imunidade e é adorada até pelos pets mais exigentes. Ideal para raças médias e grandes!
+</p>
+
+            <a href="https://amzn.to/4eJY6Pd" class="buy-button-link">
+               <button class="buy-now-button">Quero essa ração para meu pet</button>
+
+            </a>
+
+            <p style="font-size: 0.95em; color: #777; margin-top: 10px;">
+💬 Mais de 5.000 tutores satisfeitos já melhoraram a alimentação dos seus pets com esta ração!
+</p>
+
+        </div>
+
+
+        <div class="mensagem-final">
+            <p>Ao escolher um cachorro, é importante considerar seu <strong>estilo de vida</strong>, o <strong>espaço
+                    disponível</strong>, seu <strong>tempo para treinamento e exercícios</strong>, e sua
+                <strong>capacidade de cuidar da pelagem e da saúde</strong> do animal. Cada raça tem suas
+                particularidades!
+            </p>
+        </div>
+    </div>
+
+
+    <div id="myModal" class="modal">
+        <span class="close-button">&times;</span>
+        <img class="modal-content" id="img01">
+        <div id="caption" class="modal-caption"></div>
+    </div>
+
+    <script>
+        // --- JavaScript para o Modal ---
+        // Pega o modal
+        var modal = document.getElementById("myModal");
+
+        // Pega a imagem e o texto dentro do modal
+        var modalImg = document.getElementById("img01");
+        var captionText = document.getElementById("caption");
+
+        // Pega todas as imagens da galeria
+        var galleryImages = document.querySelectorAll(".galeria-racas img");
+
+        // Itera sobre cada imagem da galeria e adiciona um evento de clique
+        galleryImages.forEach(function (img) {
+            img.onclick = function () {
+                modal.style.display = "flex"; // Mostra o modal (usando flex para centralizar)
+                modalImg.src = this.src; // Define a imagem do modal como a imagem clicada
+                captionText.innerHTML = this.alt; // Define a legenda do modal como o texto alt da imagem
+            }
+        });
+
+        // Pega o elemento <span> que fecha o modal
+        var span = document.getElementsByClassName("close-button")[0];
+
+        // Quando o usuário clica no <span> (x), fecha o modal
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+
+        // Opcional: Fecha o modal se clicar fora da imagem (no fundo preto)
+        modal.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        // Opcional: Fecha o modal ao pressionar a tecla ESC
+        document.addEventListener('keydown', function (event) {
+            if (event.key === "Escape" || event.keyCode === 27) {
+                if (modal.style.display === "flex") {
+                    modal.style.display = "none";
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

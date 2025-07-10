@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cachorro Fofo - Página Inicial</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<style>
+    /* Reset básico para remover margens e paddings padrão do navegador */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box; /* Garante que padding e borda sejam incluídos na largura/altura */
+    }
+
+    body {
+        background-color: #fcefe2; /* Um tom de fundo suave e quente */
+        font-family: 'Roboto', sans-serif; /* Fonte padrão para o texto */
+        color: #333; /* Cor de texto padrão */
+        display: flex; /* Usamos flexbox para centralizar o conteúdo principal */
+        justify-content: center; /* Centraliza horizontalmente */
+        align-items: center; /* Centraliza verticalmente */
+        min-height: 100vh; /* Garante que o body ocupe a altura total da viewport */
+        flex-direction: column; /* Coloca os itens em coluna */
+        padding: 20px; /* Adiciona um padding geral para telas menores */
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Centraliza os itens dentro do container */
+        background-color: #fff; /* Fundo branco para o container */
+        padding: 30px;
+        border-radius: 15px; /* Bordas arredondadas */
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Sombra suave para profundidade */
+        max-width: 500px; /* Largura máxima do container */
+        width: 100%; /* Garante que o container ocupe a largura disponível */
+        text-align: center; /* Alinha o texto centralmente */
+    }
+
+    h1 {
+        font-family: 'Pacifico', cursive; /* Fonte mais divertida para o título */
+        color: #ff6f61; /* Um tom de vermelho/rosa divertido */
+        margin-bottom: 15px;
+        font-size: 2.8em; /* Tamanho maior para o título */
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Sombra para o texto do título */
+    }
+
+    p {
+        font-size: 1.1em; /* Tamanho de fonte um pouco maior para o parágrafo */
+        line-height: 1.6; /* Melhor espaçamento entre linhas */
+        margin-bottom: 25px;
+        max-width: 400px; /* Limita a largura do parágrafo para melhor leitura */
+    }
+
+    .imagem img {
+        max-width: 100%; /* Garante que a imagem seja responsiva */
+        height: auto; /* Mantém a proporção da imagem */
+        border-radius: 10px; /* Bordas arredondadas para a imagem */
+        margin-bottom: 30px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Sombra para a imagem */
+    }
+
+    .botao {
+        display: inline-block; /* Permite aplicar padding e width */
+        padding: 15px 30px; /* Padding interno do botão */
+        background-color: #7d5fff; /* Cor vibrante para o botão */
+        color: white; /* Texto branco */
+        text-decoration: none; /* Remove sublinhado do link */
+        border: none; /* Remove borda padrão do botão */
+        border-radius: 50px; /* Bordas bem arredondadas (pílula) */
+        font-size: 1.2em; /* Tamanho da fonte do botão */
+        font-weight: bold;
+        cursor: pointer; /* Muda o cursor para indicar que é clicável */
+        transition: background-color 0.3s ease, transform 0.2s ease; /* Transição suave ao interagir */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para o botão */
+    }
+
+    .botao:hover {
+        background-color: #6a4ee0; /* Cor um pouco mais escura ao passar o mouse */
+        transform: translateY(-2px); /* Efeito de "levitação" */
+    }
+
+    .botao:active {
+        background-color: #573bd4; /* Cor ao clicar */
+        transform: translateY(0); /* Volta à posição original ao clicar */
+    }
+
+    /* Media Queries para telas menores (smartphones) */
+    @media (max-width: 600px) {
+        .container {
+            padding: 20px;
+            margin: 0 10px; /* Adiciona margem lateral para evitar que o conteúdo encoste nas bordas */
+        }
+        h1 {
+            font-size: 2.2em;
+        }
+        p {
+            font-size: 1em;
+        }
+        .botao {
+            padding: 12px 25px;
+            font-size: 1.1em;
+        }
+    }
+</style>
+<body>
+    <div class="container">
+        <header>
+            <h1>Cachorro Fofo</h1>
+            <p>Este é um site para mostrar fotos de cachorros fofos espalhados pelo mundo!</p>
+        </header>
+
+        <main>
+            <div class="imagem">
+                <img src="dog1.jpg" alt="Um cachorro adorável olhando para a câmera.">
+            </div>
+
+            <a href="./newpage.html" class="botao">Prosseguir</a>
+        </main>
+    </div>
+</body>
+</html>

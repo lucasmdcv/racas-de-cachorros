@@ -15,7 +15,8 @@ Obs: No final da página há um exemplo de botão de compra, simulando uma exper
 
 Feedbacks são super bem-vindos! 😊
 
-![image](https://github.com/user-attachments/assets/d374389b-b6b0-4edd-83c6-6f1c17628c61) 
+![image](https://github.com/user-attachments/assets/d3d8ba08-5155-4730-a053-71b430587db7)
+
 
 
 ![image](https://github.com/user-attachments/assets/66adbbd8-4cb4-4203-9f08-4c0c5317d678)
